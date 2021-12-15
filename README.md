@@ -12,7 +12,10 @@ Once the quiz is finished, the "highscores" sections pops up and the "quiz" sect
 
 Link to Webpage
 
-
+https://jacobluedke.github.io/quiz-challenge/
 
 Screenshot of Webpage
 
+See image folder in assets. I couldn't get the screenshot to open in the README.
+
+IMG_2034.HEIC
