@@ -68,6 +68,7 @@ var questions =[
 ];
 
 var body = document.body;
+var highScores = document.getElementById("high-scores");
 var startButton = document.getElementById("start");
 var question = document.getElementById("question");
 var lastQuestion = questions.length - 1;
@@ -93,8 +94,8 @@ var scoreBoard = document.getElementById("scoreBoard");
 
 startButton.addEventListener("click", function() {
 
-    startContainer.classList.add("hidden")
-    quizContainer.classList.remove("hidden")
+    startContainer.classList.add("hidden");
+    quizContainer.classList.remove("hidden");
 
     timeInterval = setInterval(function() {
         timeLeft--;
@@ -174,7 +175,12 @@ function endQuiz() {
 
 }
 
+highScores.addEventListener("click", function() {
 
+    startContainer.classList.add("hidden");
+    scoreContainer.classList.remove("hidden");
+
+});
 
 
 
