@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Coding Quiz</title>
+</head>
+<body>
+    <header>
+
+        <h1>Coding Quiz Challenge</h1>
+
+    
+
+        <nav>
+            <ul id="navbar">
+                <li><a href="#">Highscores</a></li>
+                
+            </ul>
+
+        </nav>
+
+        <div id="timer">80 seconds left</div>
+
+    </header>
+
+    <section id="start-container">
+
+         <button id="start">Start Quiz</button>
+
+         <p>
+             Click on the correct answer to the following questions until the questions run out or you are out of time. 
+             When the quiz is finished, your highscore will be logged in the highscores page. Click the "start quiz" button to begin. 
+             Good luck!
+         </p>
+
+    </section>
+
+
+
+    <section id="quiz-container" class="hidden">
+
+        <div id="scoreBoard">Score: 0</div>
+
+        <div id="question"></div>
+
+        <div id="choices">
+            <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+            <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+            <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+            <div class="choice" id="D" onclick="checkAnswer('D')"></div>
+        </div>
+
+        <div id="message"></div>
+
+
+    </section>
+
+    <section id="score-container" class="hidden">
+
+        <div id="highScore"></div>
+
+    </section>
+
+
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
