@@ -1,5 +1,4 @@
 
-
 var questions =[
     {
         question:"What color is an orange?",
@@ -88,7 +87,9 @@ var timeLeft = 80;
 var timeInterval;
 var score = 0;
 var scoreBoard = document.getElementById("scoreBoard");
-
+var saveBtn = document.getElementById("save-score");
+var viewHighScores = document.getElementById("viewHighScores");
+var displayScore = document.getElementById("displayHighScore");
 
 
 
@@ -113,7 +114,6 @@ startButton.addEventListener("click", function() {
 
     startQuiz();
 
-    endQuiz();
 
 });
 
@@ -130,7 +130,7 @@ function startQuiz() {
         choiceC.innerHTML = q.choiceC;
         choiceD.innerHTML = q.choiceD;
 
-        checkAnswer();
+        //checkAnswer();
     
         
     }
@@ -140,45 +140,105 @@ function startQuiz() {
 
 function checkAnswer(answer) {
     if (answer == questions[currentQuestion].correct) {
-        console.log("correct");
+        //console.log("correct");
         score++;
         scoreBoard.textContent = "Score: " + score;
-    } else {
-        console.log("incorrect");
-    }
+        currentQuestion++;
 
-    //if (currentQuestion < lastQuestion) {
-       // currentQuestion++;
-       // startQuiz();
-    //}
+        if (currentQuestion === questions.length) {
+            endQuiz();
+         } else {
+             startQuiz();
+         };
+
+        
+    } else {
+        //console.log("incorrect");
+        currentQuestion++;
+
+        if (currentQuestion === questions.length) {
+            endQuiz();
+         } else {
+             startQuiz();
+         };
+
+        
+    };
+
+    
 }
 
 
 function endQuiz() {
-    if (currentQuestion == lastQuestion) {
-        quizContainer.classList.add("hidden");
-        scoreContainer.classList.remove("hidden");
-        clearInterval(timeInterval);
-        timerEl.textContent = "Quiz completed in time";
-    }
-
-    if (currentQuestion == lastQuestion) {
-
-        
-
-    }
-   
+    
+    quizContainer.classList.add("hidden");
+    scoreContainer.classList.remove("hidden");
+    clearInterval(timeInterval);
+    timerEl.textContent = "Quiz completed in time";
 
     
 
-
-
 }
 
-highScores.addEventListener("click", function() {
+saveBtn.addEventListener("click", function() {
+    var initials = document.getElementById("initials-input").value.trim();
+    var newScore = {
+        Player: initials,
+        Score: score,
+    };
+    var highScores = [];
+    // if (localStorage.getItem("highScore") === null) {
+    //         localStorage.setItem("highScore", []);
+    // }
+    highScores.push(newScore);
 
+    const storeScores = JSON.stringify(highScores);
+    localStorage.setItem("highScores", storeScores);
+    console.log(storeScores);
+
+    var viewHighScores = localStorage.getItem("highScores");
+    var viewScore = JSON.parse(viewHighScores);
+
+    
+    
+    if (viewScore !== null) {
+
+        for (var i = 0; i < viewScore.length; i++) {
+    
+            var createLi = document.createElement("li");
+            // createLi.innerText = "Player: " + viewScore[i].Player + "Score: " + viewScore[i].Score;
+            // highScore.appendChild(createLi);
+            console.log(viewScore[i].Player);
+            console.log(viewScore[i].Score);
+
+            createLi.textContent = viewScore[i].Player + " - " + viewScore[i].Score;
+
+            viewHighScores.appendChild(createLi);
+    
+        }
+    // localStorage.setItem("highScore", JSON.stringify(scoresStorage));
+    // var scoresStorage = JSON.parse(localStorage.getItem("highScore"));
+    // scoresStorage.push(highScore);
+    // displayScore.innerHTML = scoresStorage;
+    
+
+    // console.log(JSON.stringify(scoresStorage));
+
+    // for (i = 0; i < scoresStorage.length; i++) {
+    }
+
+    
+
+});
+
+
+
+highScores.addEventListener("click", function() {
     startContainer.classList.add("hidden");
     scoreContainer.classList.remove("hidden");
+    
+
+
 
 });
 

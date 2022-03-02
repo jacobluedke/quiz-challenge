@@ -43,24 +43,34 @@
     <section id="quiz-container" class="hidden">
 
         <div id="scoreBoard">Score: 0</div>
+        <div class="quizStyle">
+            <div id="question"></div>
 
-        <div id="question"></div>
-
-        <div id="choices">
-            <div class="choice" id="A" onclick="checkAnswer('A')"></div>
-            <div class="choice" id="B" onclick="checkAnswer('B')"></div>
-            <div class="choice" id="C" onclick="checkAnswer('C')"></div>
-            <div class="choice" id="D" onclick="checkAnswer('D')"></div>
+            <div id="choices">
+                <button class="choice" id="A" onclick="checkAnswer('A')"></button>
+                <button class="choice" id="B" onclick="checkAnswer('B')"></button>
+                <button class="choice" id="C" onclick="checkAnswer('C')"></button>
+                <button class="choice" id="D" onclick="checkAnswer('D')"></button>
+            </div>
         </div>
-
         <div id="message"></div>
 
 
     </section>
 
     <section id="score-container" class="hidden">
-
-        <div id="highScore">HighScores:</div>
+        <div class="displayScores">
+            <h1 class="scoreTitle">High Scores</h1>
+            <ul id="viewHighScores"></ul>
+        </div>
+        <!-- <div id="highScore">
+            <p id="displayHighScore"></p>
+        </div> -->
+        <div id="scoreStyle">
+            <input type="text" id="initials-input" placeholder="Enter Initials Here"><br>
+            <button type="submit" id="save-score">Save</button>
+        </div>
+        
 
     </section>
 

@@ -78,11 +78,60 @@ body {
 #quiz-container {
     background: #403f3f;
     margin: 10% auto;
-    
     width: 80%;
-    height: 70vh;
+    height: 60vh;
+}
+
+#scoreBoard {
+    font-size: 20px;
+    color: whitesmoke;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.quizStyle {
+    font-size: 35px;
+    text-align: center;
+    padding-top: 50px;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+#choices button {
+    margin: auto;
+    display: block;
+    font-size: 25px;
+    font-weight: bolder;
+    padding: 10px;
+    color: white;
+    background-color: navy;
+    margin-top: 15px;
+    min-width: 150px;
+}
+
+#choices button:hover {
+    color: navy;
+    background-color: white;
 }
 
 .hidden {
     display: none;
+}
+
+#scoreStyle {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.displayScores {
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+    
+    
+}
+
+.scoreTitle {
+    text-align: center;
+    padding-top: 50px;
 }
